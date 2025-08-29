@@ -92,7 +92,7 @@ def main():
         args.base_model = args.base_model[:-1]
     output_dir = str(os.path.join(args.output_dir, os.path.basename(args.base_model)))
     # 定义训练参数
-    training_args =
+    training_args = \
         Seq2SeqTrainingArguments(output_dir=output_dir,  # 保存检查点和意志的目录
                                  per_device_train_batch_size=args.per_device_train_batch_size,  # 训练batch_size大小
                                  per_device_eval_batch_size=args.per_device_eval_batch_size,  # 评估batch_size大小
