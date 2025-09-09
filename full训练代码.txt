@@ -1,0 +1,22 @@
+torchrun --nproc_per_node=2 finetune_full.py \
+--base_model ./whisper-large-v3 \
+--train_data ./tib_word_data/output_transcription_part1.jsonl \
+--test_data ./tib_word_data/output_transcription_part2.jsonl \
+--output_dir output_full/ \
+--per_device_train_batch_size 2 \
+--per_device_eval_batch_size 2 \
+--learning_rate 1e-5 \
+--num_train_epochs 3 \
+--logging_steps 100 \
+--eval_steps 1000 \
+--save_steps 1000 \
+--num_workers 8 \
+--fp16 True
+
+
+
+torchrun --nproc_per_node=2 finetune_full.py --base_model ./whisper-large-v3 --train_data ./tib_word_data/output_train.jsonl --test_data ./tib_word_data/output_test.jsonl --output_dir output_full/ --per_device_train_batch_size 2 --per_device_eval_batch_size 2 --learning_rate 1e-5 --num_train_epochs 3 --logging_steps 100 --eval_steps 1000 --save_steps 1000 --num_workers 8 --fp16 True
+
+
+
+python filter_long_data.py --model_path ./whisper-large-v3 --train_input ./tib_word_data/output_transcription_part1.jsonl --train_output ./tib_word_data/output_train.jsonl --test_input ./tib_word_data/output_transcription_part2.jsonl --test_output ./tib_word_data/output_test.jsonl

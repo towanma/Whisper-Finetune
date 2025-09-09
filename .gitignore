@@ -7,3 +7,6 @@ dataset/*
 !dataset/test.wav
 !dataset/test_long.wav
 test.py
+tib_word_data/*
+!tib_word_data/xb_conv_whisper.ipynb
+whisper-large-v3/*
