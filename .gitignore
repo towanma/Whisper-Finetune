@@ -9,4 +9,5 @@ dataset/*
 test.py
 tib_word_data/*
 !tib_word_data/xb_conv_whisper.ipynb
+!tib_word_data/convert_xb_data.py
 whisper-large-v3/*
